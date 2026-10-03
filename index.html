@@ -56,7 +56,7 @@
 </main>
 
 <script>
-const BASE = "http://localhost:1234/v1";
+const BASE = "http://localhost:11434/v1";
 const $ = id => document.getElementById(id);
 let answered = 0, correct = 0, total = 0;
 
@@ -79,7 +79,7 @@ async function generate(){
   try{
     const m = await fetch(BASE+"/models").then(r=>r.json());
     const model = m.data && m.data[0] && m.data[0].id;
-    if(!model) throw new Error("No model loaded in LM Studio.");
+    if(!model) throw new Error("No model loaded in Ollama.");
     const prompt = `Read these electronics notes and write ${n} multiple-choice questions based ONLY on them.
 Reply with ONLY a JSON array, no other text. Each item must look like:
 {"q":"question text","options":["A","B","C","D"],"answer":0,"why":"one short reason"}
@@ -102,7 +102,7 @@ ${notes}`;
     }
     render(qs); setStatus("");
   }catch(e){
-    setStatus("Could not reach LM Studio. Open LM Studio > Developer tab, load a model, start the server, and turn on 'Enable CORS'. ("+e.message+")", true);
+    setStatus("Could not reach the server. Make sure Ollama is running, a model is pulled (for example gemma3:4b), and the OLLAMA_ORIGINS environment variable is set to * so the browser is allowed to connect. ("+e.message+")", true);
   }finally{ $("go").disabled=false; }
 }
 
