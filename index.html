@@ -102,7 +102,7 @@ ${notes}`;
     }
     render(qs); setStatus("");
   }catch(e){
-    setStatus("Could not reach the server. Make sure Ollama is running, a model is pulled (for example gemma3:4b), and the OLLAMA_ORIGINS environment variable is set to * so the browser is allowed to connect. ("+e.message+")", true);
+    setStatus("Could not reach the server. Make sure Ollama is running, a model is pulled (like gemma3:4b), and the OLLAMA_ORIGINS environment variable is set to * so your browser can connect. ("+e.message+")", true);
   }finally{ $("go").disabled=false; }
 }
 

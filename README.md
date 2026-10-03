@@ -6,14 +6,10 @@ Circuit Sathi is a lightweight, local web application that converts electronics 
 I built this for a classmate who is preparing for their electronics exams and needed an easy way to self-test on study materials.
 
 ## How to run it
-1. Install Ollama from [ollama.com](https://ollama.com/).
-2. Open your terminal and run: `ollama pull gemma3:4b`
-3. Set the environment variable `OLLAMA_ORIGINS` to `*` so the browser can connect. On Windows:
-   - Search for "environment variables" in the Start menu.
-   - Click **Edit environment variables for your account**.
-   - Click **New** and add `OLLAMA_ORIGINS` as the name and `*` as the value.
-4. Quit and reopen Ollama so it picks up the new environment variable.
-5. Double-click the `index.html` file to open it in your browser.
+1. Install Ollama from [ollama.com](https://ollama.com).
+2. Open Command Prompt and run: `ollama pull gemma3:4b`
+3. Set the environment variable `OLLAMA_ORIGINS` to `*` (Search Windows for "environment variables" > Edit for your account > New), then fully Quit and reopen Ollama.
+4. Double-click `index.html` to open the app.
 
 ## Open-source AI & Why local matters
 This project uses open-weight models like **Gemma** running fully offline through **Ollama**. Running the model locally matters because:
@@ -23,8 +19,8 @@ This project uses open-weight models like **Gemma** running fully offline throug
 * You can easily swap to other open-source models as they are released.
 
 ## Troubleshooting
-* **Server not reachable:** Ensure Ollama is running, the `OLLAMA_ORIGINS` environment variable is set to `*` (and you restarted Ollama after setting it), and a model is pulled. Check if the port is `11434`.
-* **Model returns bad JSON:** Smaller models sometimes struggle with formatting. If this happens, simply try clicking "Make questions" again, or use a slightly larger model if your laptop can handle it.
+* **Server not reachable:** Ensure Ollama is running, the `OLLAMA_ORIGINS` environment variable is set to `*` (and you fully quit/restarted Ollama after setting it), and a model is pulled. Check if the port is `11434`.
+* **Model returns bad JSON:** Small models like 4B sometimes output malformed JSON (like missing brackets). If you get a "failed to parse JSON" error or similar, it is a known limitation of small local models—simply click the "Make questions" button again.
 
 ---
 *Built with help from AI tools*
